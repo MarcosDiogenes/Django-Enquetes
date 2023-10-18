@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'enquetes/style.css' %}">
+
+{% if lista_perguntas_recentes %}
+    <ul>
+    {% for pergunta in lista_perguntas_recentes %}
+    <li><a href="{% url 'enquetes:detalhe' pergunta.id %}">{{ pergunta.texto_pergunta }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Não há enquetes disponíveis.</p>
+{% endif %}
